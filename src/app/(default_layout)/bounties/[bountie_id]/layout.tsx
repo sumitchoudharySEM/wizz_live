@@ -1,5 +1,4 @@
-import DefaultNavbar from "@/components/level_one_layout/default_navbar";
-import DefaultSidebar from "@/components/level_one_layout/default_sidebar"
+
 
 export const metadata = {
   title: "Next.js",
@@ -12,8 +11,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (<>
-  {/* <DefaultNavbar/> */}
-  <DefaultSidebar/>
   {children}
   </>
   );
