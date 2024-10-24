@@ -57,18 +57,18 @@ const DefaultNavbar = () => {
           </div>
         </div>
       ) : (
-        <div className="flex justify-end px-4 py-4 bg-white shadow md:px-7">
-          <button className="flex items-center px-4 py-2 md:px-5 md:py-3 text-white bg-green-500 rounded-full hover:bg-[#2FCC71] transition duration-200 shadow hover:shadow-lg text-sm md:text-base">
+        <div className="flex justify-end px-4 py-4 bg-white shadow md:px-7 md:py-[12px]">
+          <button className="flex items-center px-4 py-2 md:px-5 md:py-[11px] text-white bg-green-500 rounded-full hover:bg-[#2FCC71] transition duration-200 shadow hover:shadow-lg text-sm md:text-base font-semibold">
             Sign Up
-            <ArrowRightCircleIcon className="h-5 w-5 ml-2 md:ml-4" />
+            <ArrowRightCircleIcon className="h-6 w-6 ml-2 md:ml-4" />
           </button>
 
           <button
-            className="flex items-center px-4 py-2 md:px-5 md:py-3 text-white bg-green-500 rounded-full hover:bg-[#2FCC71] transition duration-200 shadow hover:shadow-lg ml-4 md:ml-6 text-sm md:text-base"
+            className="flex items-center px-4 py-2 md:px-5 md:py-[11px] text-white bg-green-500 rounded-full hover:bg-[#2FCC71] transition duration-200 shadow hover:shadow-lg ml-4 md:ml-6 text-sm md:text-base font-semibold"
             onClick={toggleLogin} // Toggles login state on button click
           >
             Login
-            <ArrowRightCircleIcon className="h-5 w-5 ml-2 md:ml-4" />
+            <ArrowRightCircleIcon className="h-6 w-6 ml-2 md:ml-4" />
           </button>
         </div>
       )}
