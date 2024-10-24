@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, FormEvent } from "react";
+import Link from "next/link";
 
 const page = () => {
   const [username, setUsername] = useState("");
@@ -38,12 +39,9 @@ const page = () => {
       </p>
       <p className="mt-[10px] text-center font-normal md:text-left">
         Already using Wizz?
-        <a
-          href="#"
-          className="transition-colors duration-300 hover:underline hover:text-green-600 ml-2 whitespace-nowrap font-semibold text-[#2FCC71]"
-        >
+        <Link href="/login" className="transition-colors duration-300 hover:underline hover:text-green-600 ml-2 whitespace-nowrap font-semibold text-[#2FCC71]">
           Login here
-        </a>
+        </Link>
       </p>
       <button className="-2 mt-8 flex items-center gap-[10px] justify-center rounded-md border px-4 py-1 outline-none ring-gray-400 ring-offset-2 transition hover:border-transparent hover:bg-[#2fcc70ee] hover:text-[#ffffff] focus:ring-2">
         <svg
