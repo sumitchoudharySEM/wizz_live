@@ -43,10 +43,10 @@ const page = () => {
           Login here
         </Link>
       </p>
-      <button className="-2 mt-8 flex items-center gap-[10px] justify-center rounded-md border px-4 py-1 outline-none ring-gray-400 ring-offset-2 transition hover:border-transparent hover:bg-[#2fcc70ee] hover:text-[#ffffff] focus:ring-2">
+      <button className=" mt-8 flex items-center font-semibold text-[17px] gap-[10px] justify-center rounded-md border px-4 py-[12px] outline-none ring-[#2fcc71] ring-offset-2 transition hover:bg-slate-50 focus:ring-2">
         <svg
-          width="17"
-          height="17"
+          width="21"
+          height="21"
           viewBox="0 0 22 22"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
