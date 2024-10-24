@@ -6,6 +6,11 @@ import Link from "next/link";
 const page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,7 +28,7 @@ const page = () => {
   };
 
   return (
-    <div className="my-auto mx-auto flex flex-col justify-center px-6 pt-8 md:justify-start lg:w-[28rem]">
+    <div className="my-auto mx-auto flex flex-col justify-center px-6 pt-[11rem] md:pt-8 md:justify-start lg:w-[28rem]">
       <p className="text-center text-3xl font-bold md:text-left md:leading-tight">
         Log In to your account
       </p>
@@ -101,7 +106,7 @@ const page = () => {
             required
           />
         </div>
-        <div className="flex flex-col pt-4">
+        <div className="flex flex-col pt-4 relative">
           <label
             htmlFor="password"
             className="block mb-2 text-sm font-normal text-[#344054]"
@@ -109,14 +114,58 @@ const page = () => {
             Password
           </label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"} // Toggle input type
             id="password"
-            className="bg-[#ffffff] border border-gray-300 text-gray-900 text-sm rounded-[6px] focus:ring-green-500 focus:border-green-500 block w-full p-[10px]"
+            className="bg-[#ffffff] border border-gray-300 text-gray-900 text-sm rounded-[6px] focus:ring-green-500 focus:border-green-500 block w-full p-[10px] pr-10"
             placeholder="•••••••••"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className="absolute inset-y-0 right-3 flex items-center text-gray-500 pt-[43px]"
+          >
+            {showPassword ? (
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_54_4231)">
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M0.142598 2.31017C0.385538 1.97468 0.854448 1.89966 1.18994 2.1426L15.6899 12.6426C16.0254 12.8855 16.1005 13.3544 15.8575 13.6899C15.6146 14.0254 15.1457 14.1005 14.8102 13.8575L12.5615 12.2292C11.3457 13.1889 9.7922 14.0001 8.00006 14.0001C6.0187 14.0001 4.32923 13.0084 3.06667 11.9225C1.79722 10.8308 0.8805 9.57698 0.42968 8.89876C0.0668461 8.35291 0.0657162 7.64896 0.429259 7.10198C0.783329 6.56925 1.4245 5.68192 2.2979 4.7969L0.310172 3.35751C-0.0253172 3.11457 -0.100343 2.64566 0.142598 2.31017ZM3.52875 5.6882C2.66555 6.5303 2.02476 7.4113 1.6785 7.93227C1.66294 7.95569 1.65707 7.97881 1.65708 7.99992C1.65709 8.02107 1.66303 8.04455 1.67888 8.0684C2.09147 8.68911 2.92065 9.81854 4.04474 10.7853C5.17571 11.7579 6.52743 12.5001 8.00006 12.5001C9.19465 12.5001 10.3095 12.0116 11.2907 11.3089L9.06202 9.69505C8.75428 9.88827 8.39019 10 8 10C6.89543 10 6 9.10458 6 8.00001C6 7.83446 6.02011 7.6736 6.05803 7.51976L3.52875 5.6882ZM8.00006 3.50005C7.48367 3.50005 6.98343 3.59079 6.50129 3.7511C6.10823 3.88179 5.68365 3.6691 5.55296 3.27604C5.42227 2.88299 5.63496 2.45841 6.02802 2.32772C6.64531 2.12247 7.30538 2.00005 8.00006 2.00005C9.98141 2.00005 11.6709 2.99172 12.9334 4.07756C14.2029 5.16932 15.1196 6.42313 15.5704 7.10135C15.9337 7.64779 15.9336 8.3524 15.5704 8.89879C15.4598 9.0652 15.3223 9.26447 15.1596 9.48627C14.9146 9.82026 14.4452 9.8924 14.1113 9.6474C13.7773 9.4024 13.7051 8.93304 13.9501 8.59905C14.0979 8.39766 14.2221 8.2175 14.3212 8.06843C14.35 8.02506 14.35 7.97502 14.3212 7.93171C13.9086 7.311 13.0795 6.18157 11.9554 5.21482C10.8244 4.24216 9.47268 3.50005 8.00006 3.50005Z"
+                    fill="#979797"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_54_4231">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            ) : (
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M1.67884 7.93165C2.09143 7.31094 2.9206 6.18152 4.0447 5.21477C5.17567 4.2421 6.52738 3.5 8.00001 3.5C9.47264 3.5 10.8244 4.2421 11.9553 5.21477C13.0794 6.18152 13.9086 7.31094 14.3212 7.93165C14.35 7.975 14.35 8.025 14.3212 8.06835C13.9086 8.68906 13.0794 9.81848 11.9553 10.7852C10.8244 11.7579 9.47264 12.5 8.00001 12.5C6.52738 12.5 5.17567 11.7579 4.0447 10.7852C2.9206 9.81848 2.09143 8.68906 1.67884 8.06835C1.65002 8.025 1.65002 7.975 1.67884 7.93165ZM8.00001 2C6.01865 2 4.32919 2.99167 3.06662 4.07751C1.79718 5.16926 0.880454 6.42307 0.429635 7.10129C0.0664231 7.64771 0.0664245 8.35229 0.429635 8.89871C0.880455 9.57693 1.79718 10.8307 3.06662 11.9225C4.32919 13.0083 6.01865 14 8.00001 14C9.98137 14 11.6708 13.0083 12.9334 11.9225C14.2028 10.8307 15.1196 9.57693 15.5704 8.89871C15.9336 8.35229 15.9336 7.64771 15.5704 7.10129C15.1196 6.42307 14.2028 5.16926 12.9334 4.07751C11.6708 2.99167 9.98137 2 8.00001 2ZM8 10C9.10457 10 10 9.10457 10 8C10 6.89543 9.10457 6 8 6C6.89543 6 6 6.89543 6 8C6 9.10457 6.89543 10 8 10Z"
+                  fill="#979797"
+                />
+              </svg>
+            )}
+          </button>
         </div>
 
         <button
